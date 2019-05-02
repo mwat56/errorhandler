@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The out-of-the-box `Go` web-server send's _plain text error messages_ whenever an `HTTP` errror occurs. This package provides a simple facility to send whatever `HTML` page you like for error-pages.
+The out-of-the-box `Go` web-server sends _plain text error messages_ whenever an `HTTP` errror occurs. This package provides a simple facility to send whatever `HTML` page you like for error-pages.
 
 ## Installation
 
@@ -39,8 +39,8 @@ In the directory `_demo` there is the file `demo.go` which shows the bare minimu
 ## Licence
 
     Copyright (C) 2019  M.Watermann, 10247 Berlin, FRG
-                All rights reserved
-            EMail : <support@mwat.de>
+                    All rights reserved
+                EMail : <support@mwat.de>
 
 > This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 >
