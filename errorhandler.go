@@ -1,3 +1,9 @@
+/**
+	Copyright (C) 2019 M.Watermann, D-10247 Berlin, FRG
+			All rights reserved
+		EMail : <support@mwat.de>
+**/
+
 package errorhandler
 
 import "net/http"
@@ -10,7 +16,7 @@ type (
 		//
 		// `aData` is the orignal error text.
 		//
-		// `aStatus` is the error number of the actual HTTP error.
+		// `aStatus` is the number of the actual HTTP error.
 		GetErrorPage(aData []byte, aStatus int) []byte
 	}
 
@@ -53,6 +59,8 @@ func (ew *tErrorWriter) Write(aData []byte) (int, error) {
 
 	return ew.ResponseWriter.Write(aData)
 } // Write()
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // Wrap returns a handler function that includes error page handling,
 // wrapping the given `aHandler` and calling it internally.
