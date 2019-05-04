@@ -2,35 +2,36 @@
 
 ## Purpose
 
-The out-of-the-box `Go` web-server sends _plain text error messages_ whenever an `HTTP` errror occurs. This package provides a simple facility to send whatever `HTML` page you like for error-pages.
+The out-of-the-box `Go` web-server send _plain text error messages_ whenever an `HTTP` errror occurs. This package provides a simple facility to send whatever `HTML` page you like for error-pages.
 
 ## Installation
 
 You can use `Go` to install this package for you:
 
-    go get github.com/mwat56/go-errorhandler
+    go get -u github.com/mwat56/go-errorhandler
 
 ## Usage
 
-This package defines the `TErrorPager` interface which requires just one function or method:
+This package defines the `TErrorPager` interface which requires just one method:
 
-    GetErrorPage(aData []byte, aStatus int) []byte
+    TErrorPager interface {
+        // GetErrorPage returns an error page for `aStatus`.
+        //
+        // `aData` is the orignal error text.
+        //
+        // `aStatus` is the error number of the actual HTTP error.
+        GetErrorPage(aData []byte, aStatus int) []byte
+    }
 
-The arguments are:
+If the method's return value is _empty_ then `aData` is sent _as is_ to the remote user, otherwise the method's result is sent thus delighting your users with your customised page.
 
-* `aData` is the orignal error text.
-
-* `aStatus` is the error number of the actual HTTP error.
-
-If the function's return value is _empty_ then `aData` is sent as is to the remote user, otherwise the function result is sent thus delighting the user with your customised page.
-
-Once you've implemented such a function you call the package's `Wrap()` function:
+Once you've implemented such a method you call the package's `Wrap()` function:
 
     Wrap(aHandler http.Handler, aPager TErrorPager) http.Handler
 
 The arguments are:
 
-* `aHandler` is your original HTTP handler which will be wrapped by this packe and used internally.
+* `aHandler` is your original HTTP handler which will be wrapped by this package (and used internally).
 
 * `aPager` is the provider of error message pages as discussed above.
 
@@ -38,7 +39,7 @@ In the directory `_demo` there is the file `demo.go` which shows the bare minimu
 
 ## Licence
 
-    Copyright (C) 2019  M.Watermann, 10247 Berlin, FRG
+    Copyright (C) 2019 M.Watermann, 10247 Berlin, FRG
                     All rights reserved
                 EMail : <support@mwat.de>
 
