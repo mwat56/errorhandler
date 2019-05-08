@@ -1,5 +1,7 @@
 # ErrorHandler
 
+[![GoDoc](https://godoc.org/github.com/mwat56/go-errorhandler?status.svg)](https://godoc.org/github.com/mwat56/go-errorhandler)
+
 ## Purpose
 
 The out-of-the-box `Go` web-server send _plain text error messages_ whenever an `HTTP` errror occurs. This package provides a simple facility to send whatever `HTML` page you like for error-pages.
