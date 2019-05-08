@@ -1,8 +1,8 @@
-/**
-    Copyright © 2019  M.Watermann, 10247 Berlin, Germany
-                All rights reserved
-            EMail : <support@mwat.de>
-**/
+/*
+    Copyright © 2019 M.Watermann, 10247 Berlin, Germany
+                    All rights reserved
+                EMail : <support@mwat.de>
+*/
 
 package errorhandler
 
@@ -13,6 +13,7 @@ type (
 	// the error text of a 404 error message page.
 	TErrorPager interface {
 		// GetErrorPage returns an error page for `aStatus`.
+		// The retunf value is expacted to be a valid HTML page.
 		//
 		// `aData` is the orignal error text.
 		//
