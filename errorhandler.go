@@ -6,25 +6,29 @@
 
 package errorhandler
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+)
 
 type (
 	// TErrorPager is an interface requiring a function to return
-	// the error text of a 404 error message page.
+	// the error text of an HTTP error message page.
 	TErrorPager interface {
-		// GetErrorPage returns an error page for `aStatus`.
+		// GetErrorPage returns a HTML page for `aStatus`.
 		// The return value is expected to be a valid HTML page.
 		//
 		// `aData` is the orignal error text.
 		//
-		// `aStatus` is the number of the actual HTTP error.
+		// `aStatus` is the number of the actual HTTP error status.
 		GetErrorPage(aData []byte, aStatus int) []byte
 	}
 
-	// `tErrorWriter` embeds a `ResponseWriter` and includes 404 page handling.
+	// `tErrorWriter` embeds a `ResponseWriter` and includes
+	// error page handling.
 	tErrorWriter struct {
 		http.ResponseWriter             // used to construct an HTTP response.
-		errPager            TErrorPager // provider of 404 Error page contents
+		errPager            TErrorPager // provider of error page contents
 		status              int         // HTTP status code of current request
 	}
 )
@@ -35,7 +39,7 @@ type (
 // `aStatus` the current request's status code.
 func (ew *tErrorWriter) WriteHeader(aStatus int) {
 	ew.status = aStatus
-	if 200 != aStatus {
+	if (200 != aStatus) && (nil != ew.errPager) {
 		// The other error pages are send as "text/plain" by default.
 		// Since we expect "text/html" from our `TErrorPager` we
 		// have to make sure we send the right header line.
@@ -72,6 +76,12 @@ func (ew *tErrorWriter) Write(aData []byte) (int, error) {
 func Wrap(aHandler http.Handler, aPager TErrorPager) http.Handler {
 	return http.HandlerFunc(
 		func(aWriter http.ResponseWriter, aRequest *http.Request) {
+			defer func() {
+				// make sure a `panic` won't kill the program
+				if err := recover(); err != nil {
+					log.Printf("[%v] caught panic: %v", aRequest.RemoteAddr, err)
+				}
+			}()
 			ew := &tErrorWriter{
 				aWriter,
 				aPager,
