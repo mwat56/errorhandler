@@ -1,6 +1,13 @@
 # ErrorHandler
 
-[![GoDoc](https://godoc.org/github.com/mwat56/go-errorhandler?status.svg)](https://godoc.org/github.com/mwat56/go-errorhandler)
+[![GoDoc](https://godoc.org/github.com/mwat56/errorhandler?status.svg)](https://godoc.org/github.com/mwat56/errorhandler)
+[![License](https://img.shields.io/eclipse-marketplace/l/notepad4e.svg)](https://github.com/mwat56/errorhandler/blob/master/LICENSE)
+
+[ErrorHandler](#errorhandler)
+	- [Purpose](#purpose)
+	- 	- [Installation](#installation)
+	- 	- [Usage](#usage)
+	- 	- [Licence](#licence)
 
 ## Purpose
 
@@ -10,7 +17,7 @@ The out-of-the-box `Go` web-server send _plain text error messages_ whenever an 
 
 You can use `Go` to install this package for you:
 
-    go get -u github.com/mwat56/go-errorhandler
+    go get -u github.com/mwat56/errorhandler
 
 ## Usage
 

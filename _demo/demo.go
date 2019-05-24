@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/mwat56/go-errorhandler"
+	"github.com/mwat56/errorhandler"
 )
 
 type tErrPage bool
