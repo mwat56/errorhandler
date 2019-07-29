@@ -1,15 +1,18 @@
 # ErrorHandler
 
+[![Golang](https://img.shields.io/badge/Language-Go-green.svg?style=flat)](https://golang.org)
 [![GoDoc](https://godoc.org/github.com/mwat56/errorhandler?status.svg)](https://godoc.org/github.com/mwat56/errorhandler)
+[![Tag](https://img.shields.io/github/tag/mwat56/errorhandler.svg?style=flat-square)](https://github.com/mwat56/errorhandler/tags)
+[![view examples](https://img.shields.io/badge/learn%20by-examples-0077b3.svg?style=flat-square)](https://github.com/mwat56/errorhandler/blob/master/_demo/demo.go)
 [![License](https://img.shields.io/eclipse-marketplace/l/notepad4e.svg)](https://github.com/mwat56/errorhandler/blob/master/LICENSE)
 
-[ErrorHandler](#errorhandler)
-	- [Purpose](#purpose)
-	- 	- [Installation](#installation)
-	- 	- [Usage](#usage)
-	- 	- [Licence](#licence)
+- [ErrorHandler](#errorhandler)
+	- [Purposes](#purposes)
+	- [Installation](#installation)
+	- [Usage](#usage)
+	- [Licence](#licence)
 
-## Purpose
+## Purposes
 
 The out-of-the-box `Go` web-server send _plain text error messages_ whenever an `HTTP` errror occurs. This package provides a simple facility to send whatever `HTML` page you like for error-pages.
 

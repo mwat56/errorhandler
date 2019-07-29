@@ -1,5 +1,5 @@
 /*
-Package errorhandler implements a simple handler for HTTP error messages.
+Package errorhandler implements a simple middleware plugin for HTTP error messages.
 
     Copyright © 2019 M.Watermann, 10247 Berlin, Germany
                     All rights reserved
