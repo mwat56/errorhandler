@@ -7,12 +7,12 @@
 [![License](https://img.shields.io/eclipse-marketplace/l/notepad4e.svg)](https://github.com/mwat56/errorhandler/blob/master/LICENSE)
 
 - [ErrorHandler](#errorhandler)
-	- [Purposes](#purposes)
+	- [Purpose](#purpose)
 	- [Installation](#installation)
 	- [Usage](#usage)
 	- [Licence](#licence)
 
-## Purposes
+## Purpose
 
 The out-of-the-box `Go` web-server send _plain text error messages_ whenever an `HTTP` errror occurs. This package provides a simple facility to send whatever `HTML` page you like for error-pages.
 
