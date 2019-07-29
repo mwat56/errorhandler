@@ -1,12 +1,12 @@
 # ErrorHandler
 
-[![Golang](https://img.shields.io/badge/Language-Go-green.svg?style=flat)](https://golang.org)
-[![GoDoc](https://godoc.org/github.com/mwat56/errorhandler?status.svg)](https://godoc.org/github.com/mwat56/errorhandler)
+[![Golang](https://img.shields.io/badge/Language-Go-green.svg)](https://golang.org/)
+[![GoDoc](https://godoc.org/github.com/mwat56/errorhandler?status.svg)](https://godoc.org/github.com/mwat56/errorhandler/)
 [![Issues](https://img.shields.io/github/issues/mwat56/errorhandler.svg)](https://github.com/mwat56/errorhandler/issues?q=is%3Aopen+is%3Aissue)
 [![Size](https://img.shields.io/github/repo-size/mwat56/errorhandler.svg)](https://github.com/mwat56/errorhandler/)
-[![Tag](https://img.shields.io/github/tag/mwat56/errorhandler.svg?style=flat-square)](https://github.com/mwat56/errorhandler/tags)
+[![Tag](https://img.shields.io/github/tag/mwat56/errorhandler.svg)](https://github.com/mwat56/errorhandler/tags)
 [![License](https://img.shields.io/github/license/mwat56/errorhandler.svg)](https://github.com/mwat56/errorhandler/blob/master/LICENSE)
-[![View examples](https://img.shields.io/badge/learn%20by-examples-0077b3.svg?style=flat-square)](https://github.com/mwat56/errorhandler/blob/master/_demo/demo.go)
+[![View examples](https://img.shields.io/badge/learn%20by-examples-0077b3.svg)](https://github.com/mwat56/errorhandler/blob/master/_demo/demo.go)
 
 - [ErrorHandler](#errorhandler)
 	- [Purpose](#purpose)
