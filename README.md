@@ -2,6 +2,7 @@
 
 [![Golang](https://img.shields.io/badge/Language-Go-green.svg)](https://golang.org/)
 [![GoDoc](https://godoc.org/github.com/mwat56/errorhandler?status.svg)](https://godoc.org/github.com/mwat56/errorhandler/)
+[![Go Report](https://goreportcard.com/badge/github.com/mwat56/errorhandler)](https://goreportcard.com/report/github.com/mwat56/errorhandler)
 [![Issues](https://img.shields.io/github/issues/mwat56/errorhandler.svg)](https://github.com/mwat56/errorhandler/issues?q=is%3Aopen+is%3Aissue)
 [![Size](https://img.shields.io/github/repo-size/mwat56/errorhandler.svg)](https://github.com/mwat56/errorhandler/)
 [![Tag](https://img.shields.io/github/tag/mwat56/errorhandler.svg)](https://github.com/mwat56/errorhandler/tags)
