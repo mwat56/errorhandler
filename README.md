@@ -51,7 +51,7 @@ The arguments are:
 
 * `aPager` is the provider of error message pages as discussed above.
 
-Additionally to the functionality discussed above the `http.Handler` returned by `Wrap()` catches (and logs to StdOut) any _panics_ that may have occured while serving the respective current request.
+Additionally to the functionality discussed above the `http.Handler` returned by `Wrap()` catches (and logs to StdOut) any _panics_ that may have occurred while serving the respective current request.
 
 In the directory `_demo` there is the file `demo.go` which shows the bare minimum of how to integrate this package with your web-server.
 
