@@ -9,7 +9,6 @@ package errorhandler
 //lint:file-ignore ST1017 - I prefer Yoda conditions
 
 import (
-	"log"
 	"net/http"
 )
 
@@ -78,12 +77,6 @@ func (ew *tErrorWriter) Write(aData []byte) (int, error) {
 func Wrap(aHandler http.Handler, aPager TErrorPager) http.Handler {
 	return http.HandlerFunc(
 		func(aWriter http.ResponseWriter, aRequest *http.Request) {
-			defer func() {
-				// make sure a `panic` won't kill the program
-				if err := recover(); err != nil {
-					log.Printf("[%v] caught panic: %v", aRequest.RemoteAddr, err)
-				}
-			}()
 			ew := &tErrorWriter{
 				aWriter,
 				aPager,
