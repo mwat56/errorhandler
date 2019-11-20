@@ -1,3 +1,9 @@
+/*
+   Copyright © 2019 M.Watermann, 10247 Berlin, Germany
+                  All rights reserved
+               EMail : <support@mwat.de>
+*/
+
 package main
 
 import (
@@ -35,7 +41,7 @@ func main() {
 		Handler: errorhandler.Wrap(pageHandler, ep),
 	}
 
-	if err := server.ListenAndServe(); nil != err {
-		log.Fatalf("%s: %v", os.Args[0], err)
-	}
+	log.Fatalf("%s: %v", os.Args[0], server.ListenAndServe())
 } // main()
+
+/* _EoF_ */
