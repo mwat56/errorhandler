@@ -19,9 +19,9 @@ type (
 		// GetErrorPage returns a HTML page for `aStatus`.
 		// The return value is expected to be a valid HTML page.
 		//
-		// `aData` is the orignal error text.
+		//	`aData` is the orignal error text.
 		//
-		// `aStatus` is the number of the actual HTTP error status.
+		//	`aStatus` is the number of the actual HTTP error status.
 		GetErrorPage(aData []byte, aStatus int) []byte
 	}
 
@@ -37,7 +37,7 @@ type (
 // WriteHeader sends an HTTP response header with the provided
 // status code.
 //
-// `aStatus` the current request's status code.
+//	`aStatus` the current request's status code.
 func (ew *tErrorWriter) WriteHeader(aStatus int) {
 	ew.status = aStatus
 	if (200 != aStatus) && (nil != ew.errPager) {
@@ -51,7 +51,7 @@ func (ew *tErrorWriter) WriteHeader(aStatus int) {
 
 // Write writes the data to the connection as part of an HTTP reply.
 //
-// `aData` is the data (usually text) to send to the remote client.
+//	`aData` is the data (usually text) to send to the remote client.
 func (ew *tErrorWriter) Write(aData []byte) (int, error) {
 	if 0 == ew.status {
 		ew.status = 200
@@ -71,9 +71,9 @@ func (ew *tErrorWriter) Write(aData []byte) (int, error) {
 // Wrap returns a handler function that includes error page handling,
 // wrapping the given `aHandler` and calling it internally.
 //
-// `aHandler` responds to the actual HTTP request.
+//	`aHandler` responds to the actual HTTP request.
 //
-// `aPager` is the provider of error message pages.
+//	`aPager` is the provider of error message pages.
 func Wrap(aHandler http.Handler, aPager TErrorPager) http.Handler {
 	return http.HandlerFunc(
 		func(aWriter http.ResponseWriter, aRequest *http.Request) {
