@@ -17,7 +17,7 @@
 
 ## Purpose
 
-The out-of-the-box `Go` web-server send _plain text error messages_ whenever an `HTTP` errror occurs.
+The out-of-the-box `Go` web-server send _plain text error messages_ whenever an `HTTP` error occurs.
 This middleware package provides a simple facility to send whatever `HTML` page you like for error-pages.
 
 ## Installation
@@ -33,7 +33,7 @@ This package defines the `TErrorPager` interface which requires just one method:
     TErrorPager interface {
         // GetErrorPage returns an error page for `aStatus`.
         //
-        // `aData` is the orignal error text.
+        // `aData` is the original error text.
         //
         // `aStatus` is the error number of the actual HTTP error.
         GetErrorPage(aData []byte, aStatus int) []byte
@@ -55,7 +55,7 @@ In the sub-directory `./cmd` there is the file `demo.go` which shows the bare mi
 
 ## Licence
 
-    Copyright © 2019 M.Watermann, 10247 Berlin, Germany
+    Copyright © 2019, 2020 M.Watermann, 10247 Berlin, Germany
                     All rights reserved
                 EMail : <support@mwat.de>
 

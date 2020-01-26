@@ -1,5 +1,5 @@
 /*
-   Copyright © 2019 M.Watermann, 10247 Berlin, Germany
+   Copyright © 2019, 2020 M.Watermann, 10247 Berlin, Germany
                    All rights reserved
                EMail : <support@mwat.de>
 */
@@ -19,7 +19,7 @@ type (
 		// GetErrorPage returns a HTML page for `aStatus`.
 		// The return value is expected to be a valid HTML page.
 		//
-		//	`aData` is the orignal error text.
+		//	`aData` is the original error text.
 		//
 		//	`aStatus` is the number of the actual HTTP error status.
 		GetErrorPage(aData []byte, aStatus int) []byte
