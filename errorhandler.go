@@ -20,7 +20,6 @@ type (
 		// The return value is expected to be a valid HTML page.
 		//
 		//	`aData` is the original error text.
-		//
 		//	`aStatus` is the number of the actual HTTP error status.
 		GetErrorPage(aData []byte, aStatus int) []byte
 	}
@@ -71,9 +70,8 @@ func (ew *tErrorWriter) Write(aData []byte) (int, error) {
 // Wrap returns a handler function that includes error page handling,
 // wrapping the given `aHandler` and calling it internally.
 //
-//	`aHandler` responds to the actual HTTP request.
-//
-//	`aPager` is the provider of error message pages.
+//	`aHandler` The HTTP handler responding to the actual web request.
+//	`aPager` The provider of error message pages.
 func Wrap(aHandler http.Handler, aPager TErrorPager) http.Handler {
 	return http.HandlerFunc(
 		func(aWriter http.ResponseWriter, aRequest *http.Request) {
