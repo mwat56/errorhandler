@@ -13,7 +13,10 @@
 	- [Purpose](#purpose)
 	- [Installation](#installation)
 	- [Usage](#usage)
+	- [Libraries](#libraries)
 	- [Licence](#licence)
+
+----
 
 ## Purpose
 
@@ -53,6 +56,10 @@ The arguments are:
 
 In the sub-directory `./cmd` there is the file `demo.go` which shows the bare minimum of how to integrate this package with your web-server.
 
+## Libraries
+
+No external libraries were used building `ErrorHandler`.
+
 ## Licence
 
     Copyright © 2019, 2020 M.Watermann, 10247 Berlin, Germany
@@ -64,3 +71,5 @@ In the sub-directory `./cmd` there is the file `demo.go` which shows the bare mi
 > This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 >
 > You should have received a copy of the GNU General Public License along with this program.  If not, see the [GNU General Public License](http://www.gnu.org/licenses/gpl.html) for details.
+
+----
