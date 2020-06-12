@@ -6,8 +6,8 @@
 [![Issues](https://img.shields.io/github/issues/mwat56/errorhandler.svg)](https://github.com/mwat56/errorhandler/issues?q=is%3Aopen+is%3Aissue)
 [![Size](https://img.shields.io/github/repo-size/mwat56/errorhandler.svg)](https://github.com/mwat56/errorhandler/)
 [![Tag](https://img.shields.io/github/tag/mwat56/errorhandler.svg)](https://github.com/mwat56/errorhandler/tags)
-[![License](https://img.shields.io/github/license/mwat56/errorhandler.svg)](https://github.com/mwat56/errorhandler/blob/master/LICENSE)
-[![View examples](https://img.shields.io/badge/learn%20by-examples-0077b3.svg)](https://github.com/mwat56/errorhandler/blob/master/_demo/demo.go)
+[![License](https://img.shields.io/github/license/mwat56/errorhandler.svg)](https://github.com/mwat56/errorhandler/blob/main/LICENSE)
+[![View examples](https://img.shields.io/badge/learn%20by-examples-0077b3.svg)](https://github.com/mwat56/errorhandler/blob/main/cmd/demo.go)
 
 - [ErrorHandler](#errorhandler)
 	- [Purpose](#purpose)
