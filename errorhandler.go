@@ -1,7 +1,8 @@
 /*
-   Copyright © 2019, 2022 M.Watermann, 10247 Berlin, Germany
-                   All rights reserved
-               EMail : <support@mwat.de>
+Copyright © 2019, 2024 M.Watermann, 10247 Berlin, Germany
+
+	    All rights reserved
+	EMail : <support@mwat.de>
 */
 package errorhandler
 
@@ -9,6 +10,7 @@ package errorhandler
 
 import (
 	"net/http"
+	"net/http/httptest"
 )
 
 type (
@@ -44,6 +46,19 @@ func (ew *tErrorWriter) WriteHeader(aStatus int) {
 		// have to make sure we send the right header line.
 		ew.ResponseWriter.Header().Set("Content-Type", "text/html; charset=utf-8")
 	}
+
+	defer func() {
+		// Needed because `httptest.ResponseRecorder` doesn't
+		// allow all response codes but panics in certain cases
+		// which is very inconvenient during testing.
+		if r := recover(); r != nil {
+			if rr, ok := ew.ResponseWriter.(*httptest.ResponseRecorder); ok {
+				rr.Code = aStatus
+			}
+			ew.status = aStatus
+		}
+	}()
+
 	ew.ResponseWriter.WriteHeader(aStatus)
 } // WriteHeader()
 
@@ -52,11 +67,12 @@ func (ew *tErrorWriter) WriteHeader(aStatus int) {
 //	`aData` is the data (usually text) to send to the remote client.
 func (ew *tErrorWriter) Write(aData []byte) (int, error) {
 	if 0 == ew.status {
+		// for pages not initialised yet we assume success
 		ew.status = 200
 	}
 	if (200 != ew.status) && (nil != ew.errPager) {
 		if txt := ew.errPager.GetErrorPage(aData, ew.status); 0 < len(txt) {
-			// replace the standard text with our customised page:
+			// replace the given text with our customised page
 			aData = txt
 		}
 	}
@@ -67,11 +83,11 @@ func (ew *tErrorWriter) Write(aData []byte) (int, error) {
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 // Wrap returns a handler function that includes error page handling,
-// wrapping the given `aHandler` and calling it internally.
+// wrapping the given `aNext` and calling it internally.
 //
-//	`aHandler` The HTTP handler responding to the actual web request.
+//	`aNext` The HTTP handler responding to the actual web request.
 //	`aPager` The provider of error message pages.
-func Wrap(aHandler http.Handler, aPager TErrorPager) http.Handler {
+func Wrap(aNext http.Handler, aPager TErrorPager) http.Handler {
 	return http.HandlerFunc(
 		func(aWriter http.ResponseWriter, aRequest *http.Request) {
 			ew := &tErrorWriter{
@@ -79,7 +95,7 @@ func Wrap(aHandler http.Handler, aPager TErrorPager) http.Handler {
 				aPager,
 				0,
 			}
-			aHandler.ServeHTTP(ew, aRequest)
+			aNext.ServeHTTP(ew, aRequest)
 		})
 } // Wrap()
 
